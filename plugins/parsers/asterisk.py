@@ -24,7 +24,7 @@
              logging.debug("Get message, OK!")
  
          except IndexError:
-             logging.error("Unable parser information in libxl, some regex group missing")
+             logging.error("Unable parser information in asterisk, some regex group missing")
      else:
          logging.debug("Not value found on regex")
  
