@@ -5,7 +5,7 @@
  
  def parse_asterisk(line):
      rtrnobj = {}
-     regex = re.compile("\[(.+)\]\ ([A-Z,a-z]+)(\[[0-9]+\])\ ([\w,.]+)\:[\s,\-,\=,>]+([\D,*,\/,\d]+)$")
+     regex = re.compile("^(\[[\d,\w,\s,:]+\])\ ([A-Z,a-z]+)(\[[0-9]+\])\ ([\w,.]+)\:[\s,\-,\=,>]+([\D,*,\/,\d]+)$")
      matchobj = regex.search(line)
      if matchobj:
          try:
