@@ -7,4 +7,4 @@ db = client.log_db
 log_items = db.log_items
  
 def process_asterisk(log_item):
-  log_items.insert(log_item)
+ log_items.insert(log_item)
