@@ -1,5 +1,7 @@
  import re
  import logging
+ from datetime import datetime
+ import time
  
  def parse_asterisk(line):
      rtrnobj = {}
@@ -7,11 +9,14 @@
      matchobj = regex.search(line)
      if matchobj:
          try:
-             rtrnobj["date"] = matchobj.group(1)
+             rtrnobj["date"] = matchobj.group(1).strip("]").strip("[")
              logging.debug("Get date, OK!")
+             now = datetime.now()
+             rtrnobj["date"] = rtrnobj["date"]+" "+str(now.year)
+             rtrnobj["date"] = datetime.strptime(rtrnobj["date"], "%b  %d %H:%M:%S %Y")
              rtrnobj["type"] = matchobj.group(2)
              logging.debug("Get Message, OK!")
-             rtrnobj["message_id"] = matchobj.group(3)
+             rtrnobj["message_id"] = matchobj.group(3).strip("]").strip("[")
              logging.debug("Get Message cod, OK!")
              rtrnobj["app"] = matchobj.group(4)
              logging.debug("Get app, OK!")
